@@ -1,0 +1,4 @@
+data/telco_churn.db
+*.db
+__pycache__/
+.ipynb_checkpoints/
