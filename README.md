@@ -118,3 +118,7 @@ python scripts/load_to_sqlite.py   # membuat data/telco_churn.db, verifikasi 703
    dengan dukungan 15,2% — bundel dukungan gratis 3 bulan untuk pelanggan baru dan segmen rawan.
 6. **Perhatian khusus untuk lansia dan pelanggan yang hidup sendiri.** Senior churn 41,7%,
    tanpa pasangan 33,0% — jalur dukungan yang lebih personal dan mudah dijangkau.
+
+## Deliverables lain di repo ini
+- Portofolio-Analisis-Telco-Churn.pptx — deck portofolio 10 slide (16:9)
+- Modul-Analisis-Telco-Churn.pdf — modul belajar step-by-step (21 halaman)
