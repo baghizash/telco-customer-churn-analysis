@@ -119,6 +119,19 @@ python scripts/load_to_sqlite.py   # membuat data/telco_churn.db, verifikasi 703
 6. **Perhatian khusus untuk lansia dan pelanggan yang hidup sendiri.** Senior churn 41,7%,
    tanpa pasangan 33,0% — jalur dukungan yang lebih personal dan mudah dijangkau.
 
+## Dashboard Power BI
+
+Kit Power BI tersedia di folder `powerbi/`: `fact_pelanggan.csv` (grain 1 baris per pelanggan bersih, 7.032 baris), `dim_kontrak.csv`, `dim_internet.csv`, `dim_pembayaran.csv`, script pembangkitnya `build_kit_csv.py`, serta `measures_dax.md`, `dashboard_layout.md`, `build_guide.md`, dan pratinjau `dashboard_preview_halaman1.png`. Angka verifikasi pada kit: churn 26,6% (1.869 dari 7.032), churn kontrak Month-to-month 42,7% vs Two year 2,8%, dan Revenue At Risk USD 139.130,85 per bulan.
+
+Ringkasan 4 halaman dashboard (16:9):
+
+1. **Ringkasan Churn** — KPI keseluruhan, donut churn vs bertahan, churn per kontrak dan per layanan internet.
+2. **Kontrak, Tenure, dan Pembayaran** — churn per kelompok tenure, per metode pembayaran, dan tabel kombinasi kontrak × internet (tertinggi: Fiber optic + Month-to-month 54,6%).
+3. **Layanan, Dukungan, dan Demografi** — churn menurut Online Security, Tech Support, layanan tambahan, senior citizen, partner, dependents, dan paperless billing.
+4. **Pendapatan Berisiko dan Metodologi** — Revenue At Risk per kontrak dan per pembayaran, pembanding tagihan churn vs bertahan, dan tabel metodologi.
+
+File `.pbix` dibangun lokal di Power BI Desktop mengikuti `powerbi/build_guide.md` (nama berkas yang disarankan: `Telco-Churn-Analysis.pbix`) dan tidak di-commit ke repo ini karena GitHub tidak bisa me-render-nya. Screenshot dashboard ditambahkan setelah build selesai.
+
 ## Deliverables lain di repo ini
 - Portofolio-Analisis-Telco-Churn.pptx — deck portofolio 10 slide (16:9)
 - Modul-Analisis-Telco-Churn.pdf — modul belajar step-by-step (21 halaman)
