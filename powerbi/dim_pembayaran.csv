@@ -1,0 +1,5 @@
+pembayaran_id,metode_pembayaran
+P01,Bank transfer (automatic)
+P02,Credit card (automatic)
+P03,Electronic check
+P04,Mailed check
