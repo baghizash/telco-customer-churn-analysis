@@ -12,13 +12,13 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# ---- palet warna konsisten ----
-TEAL = "#1F7A8C"     # utama
-TEAL_DK = "#14505C"  # aksen gelap
-ORANGE = "#E86A33"   # sorotan risiko tinggi
-GREY = "#B0BEC5"     # netral
-BG = "#F7F9FA"
-TXT = "#2B3A42"
+# ---- palet warna konsisten (Tema T2: oat, blue, pink) ----
+TEAL = "#4E7FA6"     # utama: primary blue
+TEAL_DK = "#33536E"  # blue lebih gelap
+ORANGE = "#C75B7F"   # sorotan churn: pink
+GREY = "#C9BFA9"     # netral hangat
+BG = "#EFE7D8"       # ground oat, menyatu dengan slide
+TXT = "#2E3138"      # ink
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DB = BASE_DIR / "data" / "telco_churn.db"
@@ -28,6 +28,7 @@ OUT.mkdir(exist_ok=True)
 plt.rcParams.update({
     "figure.facecolor": BG,
     "axes.facecolor": BG,
+    "font.family": "Noto Sans",
     "font.size": 11,
     "axes.titlesize": 14,
     "axes.titleweight": "bold",
@@ -54,6 +55,8 @@ def bar(ax, labels, values, title, xlabel, ylabel="Churn rate (%)",
         colors=None, annotate=True, fmt="{:.1f}%"):
     colors = colors or [TEAL] * len(labels)
     bars = ax.bar(labels, values, color=colors, edgecolor="white", width=0.62)
+    ax.yaxis.grid(True, color="#D9CFB8", linewidth=0.7)
+    ax.set_axisbelow(True)
     ax.set_title(title, pad=14)
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
@@ -131,6 +134,8 @@ fig, ax = plt.subplots(figsize=(9, 5.2))
 colors = [ORANGE if r == df["rate"].max() else TEAL for r in df["rate"]]
 bars = ax.barh([labels.get(x, x) for x in df["PaymentMethod"]], df["rate"],
                color=colors, edgecolor="white")
+ax.xaxis.grid(True, color="#D9CFB8", linewidth=0.7)
+ax.set_axisbelow(True)
 ax.set_title("Churn per Metode Pembayaran (diurutkan, dengan jumlah pelanggan)", pad=14)
 ax.set_xlabel("Churn rate (%)")
 ax.spines[["top", "right"]].set_visible(False)
@@ -239,6 +244,8 @@ labels, rates, ns = zip(*rows)
 fig, ax = plt.subplots(figsize=(9, 5.2))
 bars = ax.barh(list(labels), list(rates),
                color=[ORANGE if r >= 50 else TEAL for r in rates], edgecolor="white")
+ax.xaxis.grid(True, color="#D9CFB8", linewidth=0.7)
+ax.set_axisbelow(True)
 ax.set_title("Churn pada Segmen Kombinasi Paling Rawan", pad=14)
 ax.set_xlabel("Churn rate (%)")
 ax.spines[["top", "right"]].set_visible(False)
