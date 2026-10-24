@@ -27,6 +27,7 @@ divisualisasikan dalam 12 chart (`charts/`), dan dinarasikan dalam notebook (`an
 - **Ukuran:** 7.043 baris pelanggan mentah × 21 kolom; **7.032 baris bersih** setelah pembersihan
   (lihat di bawah). Tidak ada duplikat customerID.
 - **File mentah:** `data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv`.
+- **File bersih:** `data/clean/telco_customer_churn_clean.csv` (7.032 baris × 21 kolom, dibuat oleh `scripts/clean_data.py`; log aturan pembersihan lengkap, termasuk baris yang terdampak per aturan, ada di `data/clean/README.md`).
 - **Database:** `data/telco_churn.db` (SQLite, dibuat ulang oleh script; tidak di-commit ke git).
 
 ## Pembersihan Data (Keputusan Bisnis)
@@ -58,6 +59,7 @@ telco-churn/
 ├── .gitignore
 ├── scripts/
 │   ├── load_to_sqlite.py           # load CSV -> data/telco_churn.db (+ index), verifikasi 7032 baris
+│   ├── clean_data.py               # buat data/clean/telco_customer_churn_clean.csv dari data mentah
 │   └── make_charts.py              # membuat ulang 12 chart dari database
 ├── sql/
 │   └── queries.sql                 # semua query analisis dengan komentar Bahasa Indonesia
@@ -76,6 +78,7 @@ telco-churn/
 │   └── 12_churn_totalcharges_paperless.png
 └── data/
     ├── raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
+    ├── clean/telco_customer_churn_clean.csv   # 7.032 baris bersih (log: data/clean/README.md)
     └── telco_churn.db              # dibuat oleh script, diabaikan git
 ```
 
@@ -99,6 +102,7 @@ telco-churn/
 ```bash
 pip install -r requirements.txt
 python scripts/load_to_sqlite.py   # membuat data/telco_churn.db, verifikasi 7032 baris
+python scripts/clean_data.py       # membuat data/clean/telco_customer_churn_clean.csv, verifikasi 7032 baris
 # buka analysis.ipynb di Jupyter lalu jalankan semua sel,
 # atau buat ulang chart: python scripts/make_charts.py
 ```
