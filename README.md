@@ -123,7 +123,25 @@ python scripts/clean_data.py       # membuat data/clean/telco_customer_churn_cle
 6. **Perhatian khusus untuk lansia dan pelanggan yang hidup sendiri.** Senior churn 41,7%,
    tanpa pasangan 33,0% — jalur dukungan yang lebih personal dan mudah dijangkau.
 
+## Visualisasi Utama
+
+![Tingkat churn pelanggan secara keseluruhan](charts/01_churn_overall.png)
+
+*Tingkat churn pelanggan secara keseluruhan*
+
+![Churn per tipe kontrak](charts/02_churn_contract.png)
+
+*Churn per tipe kontrak*
+
+![Churn dan pendapatan bulanan yang berisiko](charts/09_churn_revenue.png)
+
+*Churn dan pendapatan bulanan yang berisiko*
+
 ## Dashboard Power BI
+
+![Pratinjau halaman 1 dashboard Power BI](powerbi/dashboard_preview_halaman1.png)
+
+*Pratinjau layout halaman 1 dashboard dari kit di folder `powerbi/`.*
 
 Kit Power BI tersedia di folder `powerbi/`: `fact_pelanggan.csv` (grain 1 baris per pelanggan bersih, 7.032 baris), `dim_kontrak.csv`, `dim_internet.csv`, `dim_pembayaran.csv`, script pembangkitnya `build_kit_csv.py`, serta `measures_dax.md`, `dashboard_layout.md`, `build_guide.md`, dan pratinjau `dashboard_preview_halaman1.png`. Angka verifikasi pada kit: churn 26,6% (1.869 dari 7.032), churn kontrak Month-to-month 42,7% vs Two year 2,8%, dan Revenue At Risk USD 139.130,85 per bulan.
 
